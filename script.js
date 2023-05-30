@@ -24,6 +24,10 @@ function playRound(playerSelection, computerSelection) {
     playerScore++;
     playerScoreCount.innerHTML = playerScore;
     result.innerHTML = `You win! ${playerSelection} beats ${computerSelection}!`;
+
+    if (playerScore === 5) {
+      result.innerHTML = "Player wins!";
+    }
   } else if (
     (playerSelection === "Rock" && computerSelection === "Paper") ||
     (playerSelection === "Paper" && computerSelection === "Scissors") ||
@@ -32,6 +36,10 @@ function playRound(playerSelection, computerSelection) {
     computerScore++;
     computerScoreCount.innerHTML = computerScore;
     result.innerHTML = `You lose! ${computerSelection} beats ${playerSelection}!`;
+
+    if (computerScore === 5) {
+      result.innerHTML = "Computer wins!";
+    }
   }
 
   return;
