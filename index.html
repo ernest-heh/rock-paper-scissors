@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <script src="script.js" defer></script>
+  </head>
+  <body onload="bodyOnLoad()">
+    <div class="container">
+      <div class="wrapper">
+        <div class="header">
+          <h1>Rock, Paper, Scissors</h1>
+          <h2>First to 5 wins!</h2>
+          <p>
+            Eum ex illo consequatur numquam ullam modi iusto sequi quo delectus
+            quaerat commodi vitae laboriosam aliquid.
+          </p>
+        </div>
+        <div class="scores">
+          <div>Player <span class="score">0</span></div>
+          <div>Computer <span class="score">0</span></div>
+        </div>
+        <div class="game">
+          <div class="player">
+            <img src="" alt="" />
+          </div>
+          <a id="play" type="submit">Play</a>
+          <div class="computer">
+            <img src="" alt="" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      console.log("Hello from the script tag!");
+
+      const bodyOnLoad = () => {
+        console.log("Hello from the body onload.");
+      };
+    </script>
+  </body>
+</html>
