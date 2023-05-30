@@ -1,6 +1,13 @@
+const play = document.getElementById("play");
+
 // Rock Paper Scissors Logic
-// Player Selects: Rock | Paper | Scissors
 // Computer Selects: ['Rock', 'Paper', 'Scissors'] random
+function getComputerChoice() {
+  const choices = ["rock", "paper", "scissors"];
+  return choices[Math.floor(Math.random() * choices.length)];
+}
+
+// Player Selects: Rock | Paper | Scissors
 
 // if Player: Rock && Computer: Scissors, Player + 1
 // if Player: Paper && Computer: Rock, Player + 1
@@ -12,6 +19,11 @@
 
 // if playerScore === 5, Player Wins
 // if computerScore === 5, Computer Wins
-const play = document.getElementById("play");
 
-console.log("Hello from script.js!");
+// function playRound(playerSelection, computerSelection) {
+//   return `Player: ${playerSelection}, Computer: ${computerSelection}`;
+// }
+
+// const playerSelection = "rock";
+// const computerSelection = getComputerChoice();
+// console.log(playRound(playerSelection, computerSelection));
