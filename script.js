@@ -1,29 +1,44 @@
-const play = document.getElementById("play");
+let playerScore = 0;
+let computerScore = 0;
+const buttons = document.querySelectorAll(".btn");
+const result = document.getElementById("result");
+const playerScoreCount = document.getElementById("playerScore");
+const computerScoreCount = document.getElementById("computerScore");
 
-// Rock Paper Scissors Logic
 // Computer Selects: ['Rock', 'Paper', 'Scissors'] random
 function getComputerChoice() {
-  const choices = ["rock", "paper", "scissors"];
+  const choices = ["Rock", "Paper", "Scissors"];
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-// Player Selects: Rock | Paper | Scissors
+const computerSelection = getComputerChoice();
 
-// if Player: Rock && Computer: Scissors, Player + 1
-// if Player: Paper && Computer: Rock, Player + 1
-// if Player: Scissors && Computer: Paper, Player + 1
-// if Player: Rock && Computer: Paper, Computer + 1
-// if Player: Paper && Computer: Scissors, Computer + 1
-// if Player: Scissors && Computer: Rock, Computer + 1
-// if Player: === Computer:, Draw
+function playRound(playerSelection, computerSelection) {
+  if (playerSelection === computerSelection) {
+    result.innerHTML = `It's a draw! You both chose ${playerSelection}!`;
+  } else if (
+    (playerSelection === "Rock" && computerSelection === "Scissors") ||
+    (playerSelection === "Paper" && computerSelection === "Rock") ||
+    (playerSelection === "Scissors" && computerSelection === "Paper")
+  ) {
+    playerScore++;
+    playerScoreCount.innerHTML = playerScore;
+    result.innerHTML = `You win! ${playerSelection} beats ${computerSelection}!`;
+  } else if (
+    (playerSelection === "Rock" && computerSelection === "Paper") ||
+    (playerSelection === "Paper" && computerSelection === "Scissors") ||
+    (playerSelection === "Scissors" && computerSelection === "Rock")
+  ) {
+    computerScore++;
+    computerScoreCount.innerHTML = computerScore;
+    result.innerHTML = `You lose! ${computerSelection} beats ${playerSelection}!`;
+  }
 
-// if playerScore === 5, Player Wins
-// if computerScore === 5, Computer Wins
+  return;
+}
 
-// function playRound(playerSelection, computerSelection) {
-//   return `Player: ${playerSelection}, Computer: ${computerSelection}`;
-// }
-
-// const playerSelection = "rock";
-// const computerSelection = getComputerChoice();
-// console.log(playRound(playerSelection, computerSelection));
+buttons.forEach((button) => {
+  button.addEventListener("click", () => {
+    playRound(button.value, computerSelection);
+  });
+});

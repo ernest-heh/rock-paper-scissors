@@ -96,7 +96,7 @@ body {
 }
 
 .wrapper {
-  max-width: 800px;
+  width: 800px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -128,7 +128,8 @@ body {
   box-shadow: 0px 20px 35px -5px rgba(0, 0, 0, 0.15);
 }
 
-.scores .score {
+#playerScore,
+#computerScore {
   font-weight: 700;
   font-size: 3rem;
 }
@@ -136,14 +137,27 @@ body {
 .game {
   background-color: var(--offwhite);
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
   padding: 2rem;
+  padding-bottom: 3rem;
   border-radius: 1rem;
+  gap: 2rem;
   box-shadow: 0px 20px 35px -5px rgba(0, 0, 0, 0.15);
 }
 
-#play {
+.player {
+  display: flex;
+  gap: 1rem;
+}
+
+button {
+  background-color: inherit;
+}
+
+#rock,
+#paper,
+#scissors {
   font-size: 2rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -151,4 +165,29 @@ body {
   border: 1px solid black;
   padding: 1rem 2rem 1rem;
   cursor: pointer;
+}
+
+svg > path {
+  fill: black;
+  transition: fill 150ms;
+}
+
+svg:hover > path {
+  fill: hsl(12, 97%, 64%);
+  transition: fill 150ms;
+}
+
+svg {
+  transition: transform 100ms;
+}
+
+svg:hover {
+  transform: translate3d(0, -0.2rem, 0);
+  transition: transform 100ms;
+}
+
+#result {
+  font-size: 1.2rem;
+  font-weight: 500;
+  height: 1.2rem;
 }
