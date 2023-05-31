@@ -30,7 +30,9 @@ function playRound(playerSelection) {
     result.textContent = `You win! ${playerSelection} beats ${computerSelection}!`;
 
     if (playerScore === 5) {
-      result.textContent = "Player wins!";
+      result.textContent = "You win! Refresh to play again!";
+      playerScoreCount.style.color = "hsl(12, 97%, 64%)";
+      result.style.color = "hsl(12, 97%, 64%)";
       endGame();
     }
   } else if (
@@ -43,7 +45,9 @@ function playRound(playerSelection) {
     result.textContent = `You lose! ${computerSelection} beats ${playerSelection}!`;
 
     if (computerScore === 5) {
-      result.textContent = "Computer wins!";
+      result.textContent = "Computer wins! Refresh to play again!";
+      computerScoreCount.style.color = "hsl(12, 97%, 64%)";
+      result.style.color = "hsl(12, 97%, 64%)";
       endGame();
     }
   }
