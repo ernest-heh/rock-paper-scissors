@@ -78,6 +78,7 @@ select {
 :root {
   --oatmeal: hsl(40, 20%, 85%);
   --offwhite: hsl(180, 0%, 90%);
+  --orange: hsl(12, 97%, 64%);
 }
 
 body {
@@ -96,9 +97,9 @@ body {
 }
 
 .wrapper {
-  width: 800px;
-  display: flex;
-  flex-direction: column;
+  width: 600px;
+  display: grid;
+  /* grid-template-columns: 1fr; */
   gap: 1rem;
 }
 
@@ -111,21 +112,26 @@ body {
 }
 
 .scores {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 1rem;
 }
 
-.scores > div {
-  text-align: center;
-  padding: 1rem;
+.score-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 3rem;
   background-color: var(--offwhite);
   border-radius: 1rem;
-  width: 100%;
+  box-shadow: 0px 20px 35px -5px rgba(0, 0, 0, 0.15);
+}
+
+.score {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  box-shadow: 0px 20px 35px -5px rgba(0, 0, 0, 0.15);
 }
 
 #playerScore,
@@ -142,11 +148,11 @@ body {
   padding: 2rem;
   padding-bottom: 3rem;
   border-radius: 1rem;
-  gap: 2rem;
+  gap: 1rem;
   box-shadow: 0px 20px 35px -5px rgba(0, 0, 0, 0.15);
 }
 
-.player {
+.selection {
   display: flex;
   gap: 1rem;
 }
@@ -162,8 +168,8 @@ button {
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   font-weight: 700;
-  border: 1px solid black;
-  padding: 1rem 2rem 1rem;
+  border: none;
+  /* padding: 1rem 2rem 1rem; */
   cursor: pointer;
 }
 
@@ -173,7 +179,7 @@ svg > path {
 }
 
 svg:hover > path {
-  fill: hsl(12, 97%, 64%);
+  fill: var(--orange);
   transition: fill 150ms;
 }
 

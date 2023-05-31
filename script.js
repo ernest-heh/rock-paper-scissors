@@ -11,22 +11,27 @@ function getComputerChoice() {
   return choices[Math.floor(Math.random() * choices.length)];
 }
 
-const computerSelection = getComputerChoice();
+function endGame() {
+  buttons.forEach((button) => (button.disabled = true));
+}
 
-function playRound(playerSelection, computerSelection) {
+function playRound(playerSelection) {
+  let computerSelection = getComputerChoice();
+
   if (playerSelection === computerSelection) {
-    result.innerHTML = `It's a draw! You both chose ${playerSelection}!`;
+    result.textContent = `It's a draw! You both chose ${playerSelection}!`;
   } else if (
     (playerSelection === "Rock" && computerSelection === "Scissors") ||
     (playerSelection === "Paper" && computerSelection === "Rock") ||
     (playerSelection === "Scissors" && computerSelection === "Paper")
   ) {
     playerScore++;
-    playerScoreCount.innerHTML = playerScore;
-    result.innerHTML = `You win! ${playerSelection} beats ${computerSelection}!`;
+    playerScoreCount.textContent = playerScore;
+    result.textContent = `You win! ${playerSelection} beats ${computerSelection}!`;
 
     if (playerScore === 5) {
-      result.innerHTML = "Player wins!";
+      result.textContent = "Player wins!";
+      endGame();
     }
   } else if (
     (playerSelection === "Rock" && computerSelection === "Paper") ||
@@ -34,11 +39,12 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "Scissors" && computerSelection === "Rock")
   ) {
     computerScore++;
-    computerScoreCount.innerHTML = computerScore;
-    result.innerHTML = `You lose! ${computerSelection} beats ${playerSelection}!`;
+    computerScoreCount.textContent = computerScore;
+    result.textContent = `You lose! ${computerSelection} beats ${playerSelection}!`;
 
     if (computerScore === 5) {
-      result.innerHTML = "Computer wins!";
+      result.textContent = "Computer wins!";
+      endGame();
     }
   }
 
@@ -47,6 +53,6 @@ function playRound(playerSelection, computerSelection) {
 
 buttons.forEach((button) => {
   button.addEventListener("click", () => {
-    playRound(button.value, computerSelection);
+    playRound(button.value);
   });
 });
